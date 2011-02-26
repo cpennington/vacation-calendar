@@ -25,7 +25,7 @@ padMonth m = (replicate (dayOfWeek firstDay) Nothing) ++ (map Just m) ++ (replic
           lastDay = last m
 splitWeeks = splitEvery 7
 
-monthName = (printf "%B") . (L.head)
+calendarTitle = (printf "%B - %Y") . (L.head)
 filePath = (printf "%Y-%m-%B.html") . (L.head)
 
 fullDate = printf "%b %e, %Y"
@@ -42,11 +42,11 @@ weekHtml dataF w = tr $ mapM_ (dayHtml dataF) w
 monthHtml :: (Day -> Html) -> [Day] -> Html
 monthHtml dataF m = html $ do
     head $ do
-        title $ string $ monthName m
+        title $ string $ calendarTitle m
         link ! rel "stylesheet" ! type_ "text/css" ! href "calendar.css"
     body $ do
         div ! class_ "calendar" $ do
-            h1 ! class_ "title" $ string $ monthName m
+            h1 ! class_ "title" $ string $ calendarTitle m
             table $ do
                 tr $ do
                     mapM_ (th.string) ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
