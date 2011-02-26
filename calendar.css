@@ -1,0 +1,28 @@
+.day {
+    height: 100px;
+    width: 100px;
+    border-width: 1px;
+    border-color: black;
+    border-style: solid;
+}
+
+.header {
+    height: 20px;
+    background-color: lightgrey;
+}
+
+.data {
+    height: 80px;
+}
+
+.calendar table {
+    border-spacing: 0px;
+}
+
+.title {
+    text-align: center;
+}
+
+.calendar {
+    width: 700px;
+}
